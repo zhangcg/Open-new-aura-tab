@@ -1,0 +1,48 @@
+<aura:component implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" controller="myAccountController" access="global">
+    <aura:attribute name="acccountInfo" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:scan_card" alternativeText="My Account"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">Account</h1>
+                <h2 class="slds-text-heading--medium">My Account</h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout>
+        <lightning:layoutItem padding="around-small" size="6">
+            <div aria-labelledby="newexpenseform">
+                <!-- BOXED AREA -->
+                <fieldset class="slds-box slds-theme--default slds-container--small">
+                <legend id="newexpenseform" class="slds-text-heading--small 
+                  slds-p-vertical--medium">
+                  Show Account
+                </legend>
+                    <div class="slds-form">
+                        <div class="slds-form-element slds-form-element_horizontal">
+                            <label class="slds-form-element__label" for="horizontal-input-id-01">Id</label>
+                            <div class="slds-form-element__control">
+                                <lightning:formattedText value="{!v.acccountInfo.Id}" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element slds-form-element_horizontal">
+                            <label class="slds-form-element__label" for="horizontal-input-id-01">Name</label>
+                            <div class="slds-form-element__control">
+                                <lightning:formattedText value="{!v.acccountInfo.Name}" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element slds-form-element_horizontal">
+                            <label class="slds-form-element__label" for="horizontal-input-id-01">BillingAddress</label>
+                            <div class="slds-form-element__control">
+                                <lightning:formattedText value="{!v.acccountInfo.BillingAddress.country}" />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>	
